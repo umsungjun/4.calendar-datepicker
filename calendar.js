@@ -8,6 +8,7 @@ const selectDate = document.querySelector('.calendar-picker')
 
 
 selectDate.addEventListener('focus', () => {
+
     calendar.style.display = 'block'
 })
 
@@ -73,6 +74,7 @@ const renderCalendar = () => {
             // console.log(day); // 날짜
 
             selectDate.value = `${year}-${month}-${day}`
+            console.log(`${year}-${month}-${day}`);
             calendar.style.display = 'none'
         })
     })
