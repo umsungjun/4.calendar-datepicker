@@ -26,7 +26,9 @@ h1 {
 }
 
 .wrapper {
-    width: 450px;
+    --calendar-size: 430px;
+    width: var(--calendar-size);
+    height: var(--calendar-size);
     background: #fff;
     border-radius: 10px;
     display: none;
