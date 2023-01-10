@@ -13,14 +13,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- 폰트 어썸 icon -->
     <script src="https://kit.fontawesome.com/20556dcc55.js" crossorigin="anonymous"></script>
+    <script src="calendar.js" defer></script>
 </head>
 
 <body>
+    <input type="text">
     <div class="wrapper">
         <header>
-            <i class="fa-solid fa-caret-left"></i>
-            <p class="current-date">January 2023</p>
-            <i class="fa-solid fa-caret-right"></i>
+            <i id="prev" class="fa-solid fa-caret-left"></i>
+            <div class="current-date">
+                <p class="current-date-month">January</p>
+                <p class="current-date-year"></p>
+            </div>
+            <i id="next" class="fa-solid fa-caret-right"></i>
         </header>
         <div class="calendar">
             <ul class="weeks">
@@ -33,7 +38,7 @@
                 <li>Sat</li>
             </ul>
             <ul class="days">
-                <li class="inactive">28</li>
+                <!-- <li class="inactive">28</li>
                 <li class="inactive">29</li>
                 <li class="inactive">30</li>
                 <li class="inactive">31</li>
@@ -67,7 +72,7 @@
                 <li>28</li>
                 <li>29</li>
                 <li>30</li>
-                <li class="inactive">1</li>
+                <li class="inactive">1</li> -->
             </ul>
         </div>
     </div>
