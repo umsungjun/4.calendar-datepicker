@@ -13,16 +13,23 @@
 body {
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     min-height: 100vh;
     background-color: whitesmoke;
+    padding-top: 100px;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-weight: 300;
+    color: tomato;
 }
 
 .wrapper {
     width: 450px;
     background: #fff;
     border-radius: 10px;
+    display: none;
 }
 
 .wrapper header {
@@ -30,6 +37,9 @@ body {
     align-items: center;
     justify-content: space-around;
     padding: 25px 30px 10px;
+    background: tomato;
+    border-radius: 10px 10px 0px 0px;
+    color: white;
 }
 
 .current-date {
@@ -50,22 +60,31 @@ body {
 
 .calendar {
     padding: 20px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
 }
 
 .calendar .weeks {
     margin-bottom: 30px;
     color: #aaa;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    place-items: center;
 }
 
 .calendar .weeks li {
     font-weight: 500;
 }
 
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    place-items: center;
+}
 
 .calendar ul {
-    display: flex;
     list-style: none;
-    flex-wrap: wrap;
     text-align: center;
 }
 
@@ -92,7 +111,7 @@ body {
     top: 50%;
     left: 50%;
     border-radius: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-45%, -50%);
     z-index: -1;
 }
 
@@ -101,9 +120,23 @@ body {
 }
 
 .days li.active::before {
-    border: 1px solid lightgreen;
+    border: 1px solid tomato;
 }
 
 .sunday {
     color: red;
+}
+
+.calendar-picker {
+    margin-bottom: 20px;
+    width: 200px;
+    height: 35px;
+    border: 1px solid #aaa;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.calendar-picker:focus {
+    border: none;
+    outline: 2px solid lightblue;
 }

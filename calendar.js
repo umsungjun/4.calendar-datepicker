@@ -2,8 +2,18 @@ const currentDateMonth = document.querySelector('.current-date-month') // curren
 const currentDateYear = document.querySelector('.current-date-year') // current-date-monthDOM
 const days = document.querySelector('.days') // 날짜 DOM
 const prevNextButton = document.querySelectorAll('.fa-solid') // 이전 다음 버튼
+const calendar = document.querySelector('.wrapper')
+const selectDate = document.querySelector('.calendar-picker')
 
 
+
+selectDate.addEventListener('focus', () => {
+    calendar.style.display = 'block'
+})
+
+// selectDate.addEventListener('blur', () => {
+//     calendar.style.display = 'none'
+// })
 
 let date = new Date() // 현재 날짜
 let currYear = date.getFullYear() // 2023형식으로 불러옴
@@ -43,6 +53,30 @@ const renderCalendar = () => {
     currentDateMonth.innerText = months[currMonth] // date를 통해서 받아오는 month는 0부터 이기 때문에 따로 월이 영어명으로 담긴 month배열 생성 후 값을 넣어 줌
     days.innerHTML = day
 
+    const daysList = document.querySelectorAll('li')
+
+    daysList.forEach((item) => {
+        item.addEventListener('click', (e) => {
+            if (isNaN(e.target.innerText)) return // 누른 요소가 숫자가 아니라면 return 해줌
+            if (e.target.className === 'inactive' && e.target.innerText <= 31 && e.target.innerText > 20) {
+                currYear - 1
+            }
+            if (e.target.className === 'inactive' && e.target.innerText > 0 && e.target.innerText < 10) {
+
+                currMonth = currMonth + 1
+            }
+            const day = e.target.innerText
+            const month = currMonth + 1
+            const year = currYear
+            // console.log(currYear); // 년
+            // console.log(currMonth + 1); // 달
+            // console.log(day); // 날짜
+
+            selectDate.value = `${year}-${month}-${day}`
+            calendar.style.display = 'none'
+        })
+    })
+
 }
 renderCalendar()
 
@@ -62,3 +96,5 @@ prevNextButton.forEach(icon => {
         renderCalendar() // 바뀐 currMonth에 맞게 rendring을 다시 해줌
     })
 })
+
+
